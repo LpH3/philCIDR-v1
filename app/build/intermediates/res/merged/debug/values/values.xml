@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Dani/AndroidStudioProjects/philCIDR/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/C:/Users/Dani/AndroidStudioProjects/philCIDR/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">philCIDR</string>
+    <string name="btn_hostLookup">Host Lookup</string>
+    <string name="btn_startCalc">GO</string>
+    <string name="btn_subnetLookup">Subnet Lookup</string>
+    <string name="btn_subnets">Subnet Config</string>
+    <string name="hint_blockBits">32</string>
+    <string name="hint_index">index</string>
+    <string name="hint_zero">0</string>
+    <string name="radioGroup_label_classSelect">Class</string>
+    <string name="radio_label_classA">A</string>
+    <string name="radio_label_classB">B</string>
+    <string name="radio_label_classC">C</string>
+    <string name="spinner_label_hostBits">host bits</string>
+    <string name="spinner_label_hostIndex">Host Index</string>
+    <string name="spinner_label_hostsPerSubnet">hosts / subnet</string>
+    <string name="spinner_label_numSubnets"># of subnets</string>
+    <string name="spinner_label_subnetBits">subnet bits</string>
+    <string name="spinner_label_subnetIndex">Subnet Index</string>
+    <string name="switch_label_classful">Classful</string>
+    <string name="switch_label_classless">Classless</string>
+    <string name="txt_description">Network Configuration</string>
+    <string name="txt_dot">.</string>
+    <string name="txt_label_blockBits">Block Bits</string>
+    <string name="txt_label_broadcastIP">Broadcast Address</string>
+    <string name="txt_label_firstHostIP">First Host</string>
+    <string name="txt_label_hostIP">Host IP</string>
+    <string name="txt_label_lastHostIP">Last Host</string>
+    <string name="txt_label_netAddr">Network IP Address</string>
+    <string name="txt_label_subnetIP">Subnet Address</string>
+    <string name="txt_label_subnetIndex">Subnet Index</string>
+    <string name="txt_label_subnetMask">Subnet Mask</string>
+    <!-- From: file:/C:/Users/Dani/AndroidStudioProjects/philCIDR/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+	</style>
+    <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
+	    
+	</style>
+</resources>

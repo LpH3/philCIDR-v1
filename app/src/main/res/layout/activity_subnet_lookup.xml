@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    android:id="@+id/layout_SubnetLookup">
+
+    <LinearLayout
+        android:id="@+id/layout_topButtons"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        style="?android:attr/buttonBarStyle">
+        <!--style="?android:attr/buttonBarButtonStyle"-->
+        <Button
+            android:id="@+id/btn_page0"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/btn_subnets"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical"
+            android:background="#BBBBBB" />
+
+        <Button
+            android:id="@+id/btn_page1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/btn_hostLookup"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical"
+            android:background="#BBBBBB" />
+
+        <Button
+            android:id="@+id/btn_page2"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/btn_subnetLookup"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"
+            android:textColor="#BBBBBB"
+            android:background="#555555" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/label_netAddress"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <TextView
+            android:layout_width="110sp"
+            android:layout_height="match_parent"
+            android:text="@string/txt_label_subnetIndex"
+            android:id="@+id/textView"
+            android:textSize="18sp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical|right" />
+
+        <EditText
+            android:layout_width="110sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_subnetIndex"
+            android:layout_marginLeft="5dp"
+            android:inputType="number"
+            android:gravity="center_horizontal|clip_horizontal"
+            android:hint="@string/hint_index" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_label_subnetIP"
+        android:id="@+id/label_subnetAddressIP"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="3dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:id="@+id/layout_subnetAddressBinary"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_subnetAddr_1"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_subnetAddr_2"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_subnetAddr_3"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_subnetAddr_4"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_subnetAddressContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <EditText
+            android:id="@+id/txt_IP_subnetAddr_1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_subnetAddr_2"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_subnetAddr_3"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_subnetAddr_4"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_label_firstHostIP"
+        android:id="@+id/label_firstHostIP"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="3dp"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:id="@+id/layout_firstHostBinary"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_firstHost_1"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_firstHost_2"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_firstHost_3"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_firstHost_4"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal"
+        android:focusableInTouchMode="false"
+        android:focusable="false">
+
+        <EditText
+            android:id="@+id/txt_IP_firstHost_1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_firstHost_2"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_firstHost_3"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_firstHost_4"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:editable="true"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_label_lastHostIP"
+        android:id="@+id/label_lastHostIP"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="3dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:id="@+id/layout_lastHostBinary"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_lastHost_1"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_lastHost_2"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_lastHost_3"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_lastHost_4"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_lastHost_fields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <EditText
+            android:id="@+id/txt_IP_lastHost_1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_lastHost_2"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_lastHost_3"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_lastHost_4"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="16sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_label_broadcastIP"
+        android:id="@+id/label_broadcastIP"
+        android:gravity="center_horizontal"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="3dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:id="@+id/layout_boroadcastBinary"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_broadcast_1"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_broadcast_2"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_broadcast_3"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_broadcast_4"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <EditText
+            android:id="@+id/txt_IP_broadcast_1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_broadcast_2"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_broadcast_3"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/txt_IP_broadcast_4"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:hint="@string/hint_zero" />
+    </LinearLayout>
+
+</LinearLayout>

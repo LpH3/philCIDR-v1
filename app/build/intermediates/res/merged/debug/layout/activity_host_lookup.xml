@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    android:id="@+id/layout_HostLookup">
+
+    <LinearLayout
+        android:id="@+id/layout_topButtons"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        style="?android:attr/buttonBarStyle">
+        <!--style="?android:attr/buttonBarButtonStyle"-->
+        <Button
+            android:id="@+id/btn_page0"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/btn_subnets"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical"
+            android:background="#BBBBBB"
+             />
+
+        <Button
+            android:id="@+id/btn_page1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/btn_hostLookup"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"
+            android:textColor="#BBBBBB"
+            android:background="#555555" />
+
+        <Button
+            android:id="@+id/btn_page2"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/btn_subnetLookup"
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical"
+            android:background="#BBBBBB" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/label_netAddress"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_label_hostIP"
+        android:id="@+id/label_hostIP"
+        android:gravity="center_horizontal"
+        android:textSize="22sp"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="4dp"
+        android:id="@+id/layout_netMaskBinary"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/txt_hostIPbin_1"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/txt_spacer1"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/txt_hostIPbin_2"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/txt_spacer2"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/txt_hostIPbin_3"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/txt_spacer3"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00000000"
+            android:id="@+id/txt_hostIPbin_4"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_netMaskContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="1dp">
+
+        <EditText
+            android:id="@+id/txt_inputIP_1"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txt_inputIP_2"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txt_inputIP_3"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:hint="@string/hint_zero" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_dot"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txt_inputIP_4"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:gravity="center_horizontal"
+            android:inputType="number"
+            android:textSize="20sp"
+            android:hint="@string/hint_zero" />
+
+    </LinearLayout>
+
+    <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="30dp">
+
+    <TextView
+        android:layout_width="120sp"
+        android:layout_height="match_parent"
+        android:text="@string/spinner_label_subnetIndex"
+        android:id="@+id/label_subnetIndex"
+        android:layout_gravity="center_vertical"
+        android:textSize="20sp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical|right" />
+
+        <EditText
+            android:layout_width="80sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_subnetIndex"
+            android:layout_marginRight="30dp"
+            android:inputType="number"
+            android:gravity="center_horizontal"
+            android:hint="@string/hint_index" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="35dp">
+
+        <TextView
+            android:layout_width="120sp"
+            android:layout_height="match_parent"
+            android:text="@string/spinner_label_hostIndex"
+            android:id="@+id/label_hostIndex"
+            android:layout_gravity="center_vertical"
+            android:textSize="20sp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical|right" />
+
+        <EditText
+            android:layout_width="80sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_hostIndex"
+            android:layout_marginRight="30dp"
+            android:inputType="number"
+            android:gravity="center_horizontal"
+            android:hint="@string/hint_index" />
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/C:/Users/Dani/AndroidStudioProjects/philCIDR/app/src/main/res/layout/activity_host_lookup.xml -->
