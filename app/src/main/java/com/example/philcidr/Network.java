@@ -25,7 +25,7 @@ public class Network {
     public static int blockBits;                        //How many bits are used to reference the external CIDR block
     public static int maskBits;                         //How many bits are used to reference the internal subnet mask???
     public static int subnetBits;                       //How many bits are used to reference the subnet
-    public static int arrayIndex = 0;                   //arrayIndex is never used???
+    //public static int arrayIndex = 0;                   //arrayIndex is never used???
 
     //public static int startMask = 0xFFFFFFFF;
     //public static int netMask_integer = startMask << (IP_ADDRESS_SIZE-blockBits);
@@ -36,7 +36,7 @@ public class Network {
 
 
     // This loop sets up everything in the main array, which holds all the data on possible subnet configurations for a given Network
-    public static void Loop() {
+    public static void loop() {
         try {
             int maskBits = Network.blockBits;
             int index = 0;
@@ -44,7 +44,6 @@ public class Network {
                 Network.theArray[index][Network.MASK_BITS] = maskBits;
                 Network.theArray[index][Network.SUBNET_BITS] = maskBits - Network.blockBits;
                 Network.theArray[index][Network.HOST_BITS] = Network.IP_ADDRESS_SIZE - maskBits;
-                //Network.theArray[index][Network.HOST_BITS] = Network.IP_ADDRESS_SIZE - (maskBits - Network.theArray[index][Network.SUBNET_BITS]);
                 Network.theArray[index][Network.NUM_SUBNETS] = (int) Math.pow(2, (double) Network.theArray[index][Network.SUBNET_BITS]);
                 Network.theArray[index][Network.HOSTS_PER_SUBNET] = ((int) Math.pow(2, (double) theArray[index][Network.HOST_BITS])) - 2;
                 maskBits++;
@@ -69,29 +68,71 @@ public class Network {
         networkAddress = getByteArrayFromInt(withMask);
     }
 
+    /**
+     * This setNetworkAddress is used in the NetworkConfigActivity to initialize the network's
+     * address. This is the primary network address, the root address of the network which is
+     * to be subnetted.
+     *
+     * TODO: This should really be done better, and some of the methods need to be cleaned up
+     *
+     * @param one string representation of the value of the first byte
+     * @param two string representation of the value of the second byte
+     * @param three string representation of the value of the third byte
+     * @param four string representation of the value of the fourth byte
+     */
     public static void setNetworkAddress(String one, String two, String three, String four) {
+        /**
+         * this is the network address represented as an array of bytes, as input by the user
+         * this initial version of the network address has not had the proper mask applied
+         * to it yet.
+         */
         byte[] asByteArray = new byte[]{
                 (byte)Integer.parseInt(one),
                 (byte)Integer.parseInt(two),
                 (byte)Integer.parseInt(three),
                 (byte)Integer.parseInt(four)
         };
+        //get the user input network address as an integer
         int addrAsInteger = getIntFromByteArray(asByteArray);
+
+        //get the net mask as an integer
         int netMaskAsInteger = getIntFromByteArray(netMask);
+
+        //perform a bitwise AND on the user input address and the appropriate mask
         int withMask = addrAsInteger & netMaskAsInteger;
+
+        //get a new byte array from the integer version
         networkAddress = getByteArrayFromInt(withMask);
 
     }
 
-    public static void setBlockBits(int bb){
-            Network.maskBits = bb;
-            Network.blockBits = bb;
+    /**
+     * TODO: consider re-naming this method.
+     * TODO: merge this and loop()?
+     * This method is called once in the NetworkConfigActivity.
+     * Network.blockBits is distinct from Network.maskBits.
+     *
+     * Network.blockBits is the number of bits which comprise the CIDR block allocated to the
+     * network in question which is being subnetted.
+     *
+     * Network.maskBits is all of the bits which are not part of a specific host address space.
+     * That is to say, the Block Bits and the Subnet Bits.
+     *
+     * For the purposes of initializing the Network data, on this first and single call, the
+     * maskBits and the blockBits will be equivalant in number. Later, the number of maskBits
+     * may be greater than or equal to the number of blockBits but the number of blockBits will
+     * never change unless the Network is re-configured.
+     * @param blockBits
+     */
+    public static void initNetwork(int blockBits){
+            Network.maskBits = blockBits;
+            Network.blockBits = blockBits;
             int startMask = 0xFFFFFFFF;
-            int netMask_integer = startMask << (IP_ADDRESS_SIZE - bb);
+            int netMask_integer = startMask << (IP_ADDRESS_SIZE - blockBits);
             setSubnetBits();
             Network.netMask = getByteArrayFromInt(netMask_integer);
-            Network.theArray = new int[Network.IP_ADDRESS_SIZE - (blockBits + 1)][5];
-            Network.Loop();
+            Network.theArray = new int[Network.IP_ADDRESS_SIZE - (Network.blockBits + 1)][5];
+            Network.loop();
         }
 
     public static void setMaskBits(int maskBits) {
@@ -102,7 +143,7 @@ public class Network {
         setSubnetBits();
     }
 
-    public static String[] byteArrayToStringArray (byte[] byteArray) {
+    public static String[] getStringArray(byte[] byteArray) {
         int index = 0;
         String[] stringArray = new String[byteArray.length];
         Integer unsignedInt;

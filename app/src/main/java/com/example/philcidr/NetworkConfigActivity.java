@@ -10,7 +10,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -66,7 +65,7 @@ public class NetworkConfigActivity extends Activity {
         /**
          * This is my event listener for the switch. It registers whether you checked it to
          * on or off and reacts accordingly, by making the associated inputs for CIDR/Classful
-         * visible or hidden
+         * visible or hidden.
          */
         sw_addrType.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -82,10 +81,21 @@ public class NetworkConfigActivity extends Activity {
             }
         });
 
+        /**
+         * This is the listener for the radio buttons that allow for the selection of the various
+         * classful network address types (A,B,C being the primary ones included here.
+         * TODO: Add a setting in options to allow for more classful subnet types (D, custom)
+         */
         RadioButton.OnCheckedChangeListener myRadioButtonOnCheckedChangeListener = new RadioButton.OnCheckedChangeListener(){
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
+                    /**
+                     * These next two lines of code, in effect, read the first character of the text
+                     * of whichever radio button was selected, so that this can be used for a switch
+                     * statement.
+                     * TODO: Re-consider somehow tagging the button elements themselves.
+                     */
                     String theButton = compoundButton.getText().toString();
                     char buttonTag = theButton.charAt(0);
                     switch (buttonTag) {
@@ -209,7 +219,7 @@ public class NetworkConfigActivity extends Activity {
                 }
 
                 if (!noGo) {
-                    Network.setBlockBits(Integer.parseInt(txt_cidrBlockBits.getText().toString()));
+                    Network.initNetwork(Integer.parseInt(txt_cidrBlockBits.getText().toString()));
                     Network.setSubnetMask(Network.netMask);
                     Network.setNetworkAddress(ipArray[0], ipArray[1], ipArray[2], ipArray[3]);
                     startActivity(new Intent(NetworkConfigActivity.this, SubnetSetupActivity.class));
@@ -237,6 +247,7 @@ public class NetworkConfigActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    //TODO: figure out the right way to deal with pausing this activity.
     void KillActivity() {
         this.finish();
     }

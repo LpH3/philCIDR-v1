@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:2:1-49:12
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:2:1-53:12
 	package
 		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:3:5-35
 		INJECTED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml
@@ -24,7 +24,7 @@ ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidMani
 		INJECTED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml
 application
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:11:5-47:19
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:11:5-51:19
 	android:label
 		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:14:9-41
 	android:allowBackup
@@ -34,42 +34,50 @@ ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidMani
 	android:theme
 		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:15:9-40
 activity#com.example.philcidr.HostLookupActivity
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:16:9-19:20
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:16:9-20:20
 	android:label
 		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:18:13-45
+	android:noHistory
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:19:13-37
 	android:name
 		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:17:13-47
 activity#com.example.philcidr.NetworkConfigActivity
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:20:9-24:20
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:21:9-25:20
 	android:label
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:22:13-45
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:23:13-45
 	android:name
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:21:13-50
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:22:13-50
 activity#com.example.philcidr.SplashScreenActivity
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:25:9-34:20
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:26:9-36:20
 	android:label
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:27:13-45
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:28:13-45
+	android:noHistory
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:29:13-37
 	android:name
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:26:13-49
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:27:13-49
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:28:13-32:29
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:30:13-34:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:29:17-69
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:31:17-69
 	android:name
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:29:25-66
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:31:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:31:17-77
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:33:17-77
 	android:name
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:31:27-74
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:33:27-74
 activity#com.example.philcidr.SubnetLookupActivity
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:35:9-39:20
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:37:9-42:20
 	android:label
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:37:13-45
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:39:13-45
+	android:noHistory
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:40:13-37
 	android:name
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:36:13-49
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:38:13-49
 activity#com.example.philcidr.SubnetSetupActivity
-ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:40:9-44:20
+ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:43:9-48:20
 	android:label
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:42:13-45
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:45:13-45
+	android:noHistory
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:46:13-37
 	android:name
-		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:41:13-48
+		ADDED from C:\Users\Dani\AndroidStudioProjects\philCIDR\app\src\main\AndroidManifest.xml:44:13-48

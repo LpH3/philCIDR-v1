@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,7 +63,7 @@ public class HostLookupActivity extends Activity {
         label_netAddress = (TextView)findViewById(R.id.label_netAddress);
 
         // get a String array for the network address
-        String [] netAddr = Network.byteArrayToStringArray(Network.networkAddress);
+        String [] netAddr = Network.getStringArray(Network.networkAddress);
 
         // set that netAddress label to the String array version
         label_netAddress.setText(netAddr[0]+"."+netAddr[1]+"."+netAddr[2]+"."+netAddr[3]+" / "+Network.blockBits);
@@ -272,7 +271,7 @@ public class HostLookupActivity extends Activity {
 
     public void setHostAddress(int subnet, int host) {
         byte[] asIP = Network.getIPBySubnetHost(subnet, host);
-        String[] asStringArray = Network.byteArrayToStringArray(asIP);
+        String[] asStringArray = Network.getStringArray(asIP);
         txt_hostIP_1.setText(asStringArray[0]);
         //Toast.makeText(HostLookupActivity.this, asStringArray[0], Toast.LENGTH_LONG).show();
         txt_hostIP_2.setText(asStringArray[1]);

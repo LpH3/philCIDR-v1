@@ -16,10 +16,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
-
-import static android.text.TextUtils.substring;
-
 
 public class SubnetSetupActivity extends Activity {
 
@@ -51,8 +47,9 @@ public class SubnetSetupActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subnet_setup);
 
-        /** This chunk of code makes the background layout focusable and makes it so that
-         *  when you "click" it it sets focus to it and hides the keyboard.
+        /********************************************************************************
+         * This chunk of code makes the background layout focusable and makes it so that
+         * when you "click" it it sets focus to it and hides the keyboard.
          */
         layout_Main = findViewById(R.id.layout_SubnetSetup);
         final InputMethodManager imm = (InputMethodManager)getSystemService(
@@ -63,19 +60,26 @@ public class SubnetSetupActivity extends Activity {
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
         });
+        /*
+         ********************************************************************************/
 
+        /********************************************************************************
+         * This is setting up all of the UI elements for the activity
+         */
         Button bt_hostLookup = (Button)findViewById(R.id.btn_page1);
         Button bt_subnetLookup = (Button)findViewById(R.id.btn_page2);
 
         label_netAddress = (TextView)findViewById(R.id.label_netAddress);
 
+
         final Spinner spinner_numSubnets = (Spinner)findViewById(R.id.spinner_numSubnets);
-        spinner_numSubnets.setTag(Network.NUM_SUBNETS);
         final Spinner spinner_numHosts = (Spinner)findViewById(R.id.spinner_numHosts);
-        spinner_numSubnets.setTag(Network.HOSTS_PER_SUBNET);
         final Spinner spinner_subnetBits = (Spinner)findViewById(R.id.spinner_subnetBits);
-        spinner_numSubnets.setTag(Network.SUBNET_BITS);
         final Spinner spinner_hostBits = (Spinner)findViewById(R.id.spinner_hostBits);
+
+        spinner_numSubnets.setTag(Network.NUM_SUBNETS);
+        spinner_numSubnets.setTag(Network.HOSTS_PER_SUBNET);
+        spinner_numSubnets.setTag(Network.SUBNET_BITS);
         spinner_numSubnets.setTag(Network.HOST_BITS);
 
         txt_hostIPbin_1 = (TextView)findViewById(R.id.txt_hostIPbin_1);
@@ -86,18 +90,33 @@ public class SubnetSetupActivity extends Activity {
         txt_inputIP_3 = (EditText)findViewById(R.id.txt_inputIP_3);
         txt_hostIPbin_4 = (TextView)findViewById(R.id.txt_hostIPbin_4);
         txt_inputIP_4 = (EditText)findViewById(R.id.txt_inputIP_4);
+        /*
+         ********************************************************************************/
 
-        UpdateSubnetMask();
+        UpdateSubnetMask(); // Update subnet mask to initialize values.
 
-
-        String [] netAddr = Network.byteArrayToStringArray(Network.networkAddress);
+        /********************************************************************************
+         * Create an array of strings to hold the values for the network address. These are used
+         * to populate a static label used as a reference.
+         * TODO: make this a shared preferences value and set it once after Network Config
+         */
+        String [] netAddr = Network.getStringArray(Network.networkAddress);
         label_netAddress.setText(netAddr[0]+"."+netAddr[1]+"."+netAddr[2]+"."+netAddr[3]+" / "+Network.blockBits);
+        /*
+         ********************************************************************************/
 
 
+        /********************************************************************************
+         * The arrays returned from the MakeArray call are used in the spinners
+         * Possible values defined as constants in the Network Object are:
+         *      NUM_SUBNETS, HOSTS_PER_SUBNET, SUBNET_BITS, HOST_BITS
+         */
         array_numSubnets = MakeArray(Network.NUM_SUBNETS);
         array_numHosts = MakeArray(Network.HOSTS_PER_SUBNET);
         array_subnetBits = MakeArray(Network.SUBNET_BITS);
         array_hostBits = MakeArray(Network.HOST_BITS);
+        /*
+         ********************************************************************************/
 
         //Set up adapter for Number of Subnets
         adapter_numSubnets = SetUpAdapter(array_numSubnets);
@@ -115,9 +134,16 @@ public class SubnetSetupActivity extends Activity {
         adapter_hostBits = SetUpAdapter(array_hostBits);
         spinner_hostBits.setAdapter(adapter_hostBits);
 
+        /**********************************************************************************
+         * This is the override specifically for the "spinner_hostBits" spinner. It is derived
+         * from the MySpinnerOnItemSelectedListener class which impliments the
+         * OnItemSelectedListener.
+         *
+         */
         spinner_hostBits.setOnItemSelectedListener(new MySpinnerOnItemSelectedListener(){
             @Override
             public void valueChanged(AdapterView<?> parent, View view, int position, long id){
+                //set the Network's current subnet state via setMaskBits
                 Network.setMaskBits(Network.theArray[position][0]);
                 spinner_numHosts.setSelection(position);
                 spinner_numSubnets.setSelection(position);
@@ -126,6 +152,13 @@ public class SubnetSetupActivity extends Activity {
                 //Toast.makeText(SubnetSetupActivity.this, "hostBits", Toast.LENGTH_SHORT).show();
             }
         });
+
+        /**********************************************************************************
+         * This is the override specifically for the "spinner_numHosts" spinner. It is derived
+         * from the MySpinnerOnItemSelectedListener class which impliments the
+         * OnItemSelectedListener.
+         *
+         */
         spinner_numHosts.setOnItemSelectedListener(new MySpinnerOnItemSelectedListener(){
             @Override
             public void valueChanged(AdapterView<?> parent, View view, int position, long id){
@@ -189,7 +222,7 @@ public class SubnetSetupActivity extends Activity {
         txt_inputIP_3.setText(unsignedIP_3.toString());
         txt_inputIP_4.setText(unsignedIP_4.toString());*/
 
-        String[] stringArray = Network.byteArrayToStringArray(Network.subnetMask);
+        String[] stringArray = Network.getStringArray(Network.subnetMask);
         txt_inputIP_1.setText(stringArray[0]);
         txt_inputIP_2.setText(stringArray[1]);
         txt_inputIP_3.setText(stringArray[2]);
@@ -224,6 +257,9 @@ public class SubnetSetupActivity extends Activity {
     }
 
 
+    /* Method to create an array which can populate a given spinner list from the appropriate
+     * data within the Network object's theArray field.
+     */
     public String[] MakeArray(int x) {
         String[] returnArray = new String[Network.theArray.length];
         try {

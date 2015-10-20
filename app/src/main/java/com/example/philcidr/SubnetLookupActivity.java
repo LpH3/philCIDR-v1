@@ -88,7 +88,7 @@ public class SubnetLookupActivity extends Activity {
         label_netAddress = (TextView)findViewById(R.id.label_netAddress);
 
         //set value of IP Label
-        String [] netAddr = Network.byteArrayToStringArray(Network.networkAddress);
+        String [] netAddr = Network.getStringArray(Network.networkAddress);
         label_netAddress.setText(netAddr[0]+"."+netAddr[1]+"."+netAddr[2]+"."+netAddr[3]+" / "+Network.blockBits);
 
         // initialize Subnet Index Field
@@ -189,7 +189,7 @@ public class SubnetLookupActivity extends Activity {
 
     public void setSubnetAddress(int subnet) {
         byte[] asIP = Network.getIPBySubnetHost(subnet, 0);
-        String[] asStringArray = Network.byteArrayToStringArray(asIP);
+        String[] asStringArray = Network.getStringArray(asIP);
         txt_IP_subnetAddr_1.setText(asStringArray[0]);
         txt_IP_subnetAddr_2.setText(asStringArray[1]);
         txt_IP_subnetAddr_3.setText(asStringArray[2]);
@@ -198,7 +198,7 @@ public class SubnetLookupActivity extends Activity {
 
     public void setFirstHostAddress(int subnet) {
         byte[] asIP = Network.getIPBySubnetHost(subnet, 1);
-        String[] asStringArray = Network.byteArrayToStringArray(asIP);
+        String[] asStringArray = Network.getStringArray(asIP);
         txt_IP_firstHost_1.setText(asStringArray[0]);
         txt_IP_firstHost_2.setText(asStringArray[1]);
         txt_IP_firstHost_3.setText(asStringArray[2]);
@@ -208,7 +208,7 @@ public class SubnetLookupActivity extends Activity {
     public void setLastHostAddress(int subnet) {
         int host = ((int)Math.pow(2, (double) (Network.IP_ADDRESS_SIZE - Network.maskBits))) - 2;
         byte[] asIP = Network.getIPBySubnetHost(subnet, host);
-        String[] asStringArray = Network.byteArrayToStringArray(asIP);
+        String[] asStringArray = Network.getStringArray(asIP);
         txt_IP_lastHost_1.setText(asStringArray[0]);
         txt_IP_lastHost_2.setText(asStringArray[1]);
         txt_IP_lastHost_3.setText(asStringArray[2]);
@@ -218,7 +218,7 @@ public class SubnetLookupActivity extends Activity {
     public void setBroadcastAddress(int subnet) {
         int host = ((int)Math.pow(2, (double) (Network.IP_ADDRESS_SIZE - Network.maskBits))) - 1;
         byte[] asIP = Network.getIPBySubnetHost(subnet, host);
-        String[] asStringArray = Network.byteArrayToStringArray(asIP);
+        String[] asStringArray = Network.getStringArray(asIP);
         txt_IP_broadcast_1.setText(asStringArray[0]);
         txt_IP_broadcast_2.setText(asStringArray[1]);
         txt_IP_broadcast_3.setText(asStringArray[2]);

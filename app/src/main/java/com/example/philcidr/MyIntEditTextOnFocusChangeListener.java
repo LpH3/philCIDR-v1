@@ -25,13 +25,18 @@ public class MyIntEditTextOnFocusChangeListener implements View.OnFocusChangeLis
     public void valueChanged(View view){
         EditText theThing = (EditText)view;
         theThing.getText().toString();
-
     }
 
-    public void valueNotChanged(View view){
+    //this method exists to be overridden
+    public void valueNotChanged(View view){}
 
-    }
-
+    /**
+     * This override of the onFocusChange method handles situations where the EditText gains or
+     * loses focus.
+     * TODO: Work on better input validation. Right now it's only handled by keyboard limitations
+     * @param view
+     * @param b
+     */
     @Override
     public void onFocusChange(View view, boolean b) {
         // we slyly set thisThing to whatever view we have focused upon
@@ -68,6 +73,8 @@ public class MyIntEditTextOnFocusChangeListener implements View.OnFocusChangeLis
                 // If there is no value when you're done, go ahead and set the final value to -1
                 finalValue = previousValue;
                 String finalValue_string = ((Long)finalValue).toString();
+
+                //This if/else statement handles the possible case where there was no previous value either
                 if (finalValue == -1) {
                     thisThing.setText("");
                 }
