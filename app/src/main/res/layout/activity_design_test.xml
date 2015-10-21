@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ac1717"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/layout_subnetAddr">
+
+        <Space
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_centerInParent="true"
+            android:id="@+id/space_subnetAddr" />
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back_sec_label"
+            android:id="@+id/frame_label_subnetAddr"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_label_subnetIP"
+
+                android:id="@+id/label_subnetAddressIP"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="#000000" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/txt_IP_subnetAddr_1"
+            android:layout_toLeftOf="@+id/txt_IP_subnetAddr_2"
+            android:layout_toStartOf="@+id/frame_label_subnetAddr"
+            android:layout_marginRight="20dp"
+            android:password="false"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_below="@+id/frame_label_subnetAddr"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/txt_IP_subnetAddr_2"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@+id/space_subnetAddr"
+            android:layout_alignTop="@+id/txt_IP_subnetAddr_1" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/txt_IP_subnetAddr_3"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/txt_IP_subnetAddr_1"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/space_subnetAddr" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/txt_IP_subnetAddr_4"
+            android:layout_toRightOf="@+id/txt_IP_subnetAddr_3"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_alignTop="@+id/txt_IP_subnetAddr_1" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_subnetAddr_1"
+            android:layout_below="@+id/txt_IP_subnetAddr_1"
+            android:layout_alignLeft="@+id/txt_IP_subnetAddr_1"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_subnetAddr_2"
+            android:layout_below="@+id/txt_IP_subnetAddr_2"
+            android:layout_alignLeft="@+id/txt_IP_subnetAddr_2"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_subnetAddr_3"
+            android:layout_below="@+id/txt_IP_subnetAddr_3"
+            android:layout_alignLeft="@+id/txt_IP_subnetAddr_3"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/label_IPbin_subnetAddr_4"
+            android:layout_below="@+id/txt_IP_subnetAddr_4"
+            android:layout_alignLeft="@+id/txt_IP_subnetAddr_4"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ac1717"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/layout_firstHost">
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back_sec_label"
+            android:id="@+id/frameLayout2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_label_firstHostIP"
+                android:id="@+id/textView3"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="#000000" />
+        </FrameLayout>
+
+        <Space
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_centerInParent="true"
+            android:id="@+id/space_firstHost" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/txt_IP_firstHost_1"
+            android:layout_toLeftOf="@+id/txt_IP_firstHost_2"
+            android:layout_toStartOf="@+id/frameLayout2"
+            android:layout_marginRight="20dp"
+            android:password="false"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_below="@+id/frameLayout2"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/txt_IP_firstHost_2"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@+id/space_firstHost"
+            android:layout_alignTop="@+id/txt_IP_firstHost_1" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/txt_IP_firstHost_3"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/txt_IP_firstHost_1"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/space_firstHost" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/txt_IP_firstHost_4"
+            android:layout_toRightOf="@+id/txt_IP_firstHost_3"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_alignTop="@+id/txt_IP_firstHost_1" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView12"
+            android:layout_below="@+id/txt_IP_firstHost_1"
+            android:layout_alignLeft="@+id/txt_IP_firstHost_1"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView13"
+            android:layout_below="@+id/txt_IP_firstHost_2"
+            android:layout_alignLeft="@+id/txt_IP_firstHost_2"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView14"
+            android:layout_below="@+id/txt_IP_firstHost_3"
+            android:layout_alignLeft="@+id/txt_IP_firstHost_3"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView15"
+            android:layout_below="@+id/txt_IP_firstHost_4"
+            android:layout_alignLeft="@+id/txt_IP_firstHost_4"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ac1717"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/relativeLayout" >
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back_sec_label"
+            android:id="@+id/frameLayout"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_label_firstHostIP"
+                android:id="@+id/textView4"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="#000000" />
+        </FrameLayout>
+
+        <Space
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_centerInParent="true"
+            android:id="@+id/space" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/textView5"
+            android:layout_toLeftOf="@+id/textView6"
+            android:layout_toStartOf="@+id/frameLayout"
+            android:layout_marginRight="20dp"
+            android:password="false"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_below="@+id/frameLayout"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/textView6"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@+id/space"
+            android:layout_alignTop="@+id/textView5" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/textView11"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/textView5"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/space" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/textView16"
+            android:layout_toRightOf="@+id/textView11"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_alignTop="@+id/textView5" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView17"
+            android:layout_below="@+id/textView5"
+            android:layout_alignLeft="@+id/textView5"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView18"
+            android:layout_below="@+id/textView6"
+            android:layout_alignLeft="@+id/textView6"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView19"
+            android:layout_below="@+id/textView11"
+            android:layout_alignLeft="@+id/textView11"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView20"
+            android:layout_below="@+id/textView16"
+            android:layout_alignLeft="@+id/textView16"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ac1717"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/relativeLayout2" >
+
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:background="@drawable/back_sec_label"
+            android:id="@+id/frameLayout3"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_label_firstHostIP"
+                android:id="@+id/textView21"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="#000000" />
+        </FrameLayout>
+
+        <Space
+            android:layout_width="0px"
+            android:layout_height="0px"
+            android:layout_centerInParent="true"
+            android:id="@+id/space2" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/textView22"
+            android:layout_toLeftOf="@+id/textView23"
+            android:layout_toStartOf="@+id/frameLayout3"
+            android:layout_marginRight="20dp"
+            android:password="false"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_below="@+id/frameLayout3"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/textView23"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@+id/space2"
+            android:layout_alignTop="@+id/textView22" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/textView24"
+            android:layout_marginLeft="10dp"
+            android:layout_alignTop="@+id/textView22"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/space2" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="255"
+            android:id="@+id/textView25"
+            android:layout_toRightOf="@+id/textView24"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/back_ip"
+            android:textSize="20sp"
+            android:layout_alignTop="@+id/textView22" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView26"
+            android:layout_below="@+id/textView22"
+            android:layout_alignLeft="@+id/textView22"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView27"
+            android:layout_below="@+id/textView23"
+            android:layout_alignLeft="@+id/textView23"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView28"
+            android:layout_below="@+id/textView24"
+            android:layout_alignLeft="@+id/textView24"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:gravity="center"
+            android:text="00000000"
+            android:id="@+id/textView29"
+            android:layout_below="@+id/textView25"
+            android:layout_alignLeft="@+id/textView25"
+            android:textSize="12sp"
+            android:background="#111111"
+            android:textColor="#FFFFFF"
+            android:textIsSelectable="true" />
+    </RelativeLayout>
+
+</LinearLayout>
