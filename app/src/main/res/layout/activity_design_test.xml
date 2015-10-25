@@ -24,7 +24,7 @@
             android:layout_width="300dp"
             android:layout_height="30dp"
             android:background="@drawable/back_sec_label"
-            android:id="@+id/frame_label_subnetAddr"
+            android:id="@+id/frame_label_subnetAddrIP"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="2dp"
@@ -51,12 +51,12 @@
             android:text="255"
             android:id="@+id/txt_IP_subnetAddr_1"
             android:layout_toLeftOf="@+id/txt_IP_subnetAddr_2"
-            android:layout_toStartOf="@+id/frame_label_subnetAddr"
+            android:layout_toStartOf="@+id/frame_label_subnetAddrIP"
             android:layout_marginRight="20dp"
             android:password="false"
             android:background="@drawable/back_ip"
             android:textSize="20sp"
-            android:layout_below="@+id/frame_label_subnetAddr"
+            android:layout_below="@+id/frame_label_subnetAddrIP"
             android:layout_marginTop="8dp" />
 
         <TextView
@@ -160,7 +160,7 @@
             android:layout_width="300dp"
             android:layout_height="30dp"
             android:background="@drawable/back_sec_label"
-            android:id="@+id/frameLayout2"
+            android:id="@+id/frame_label_firstHostIP"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="2dp"
@@ -173,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_label_firstHostIP"
-                android:id="@+id/textView3"
+                android:id="@+id/label_firstHostIP"
                 android:layout_gravity="center"
                 android:textSize="20sp"
                 android:textColor="#000000" />
@@ -192,12 +192,12 @@
             android:text="255"
             android:id="@+id/txt_IP_firstHost_1"
             android:layout_toLeftOf="@+id/txt_IP_firstHost_2"
-            android:layout_toStartOf="@+id/frameLayout2"
+            android:layout_toStartOf="@+id/frame_label_firstHostIP"
             android:layout_marginRight="20dp"
             android:password="false"
             android:background="@drawable/back_ip"
             android:textSize="20sp"
-            android:layout_below="@+id/frameLayout2"
+            android:layout_below="@+id/frame_label_firstHostIP"
             android:layout_marginTop="8dp" />
 
         <TextView
@@ -294,13 +294,13 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:id="@+id/relativeLayout" >
+        android:id="@+id/layout_lastHost" >
 
         <FrameLayout
             android:layout_width="300dp"
             android:layout_height="30dp"
             android:background="@drawable/back_sec_label"
-            android:id="@+id/frameLayout"
+            android:id="@+id/frame_label_lastHostIP"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="2dp"
@@ -332,12 +332,12 @@
             android:text="255"
             android:id="@+id/textView5"
             android:layout_toLeftOf="@+id/textView6"
-            android:layout_toStartOf="@+id/frameLayout"
+            android:layout_toStartOf="@+id/frame_label_lastHostIP"
             android:layout_marginRight="20dp"
             android:password="false"
             android:background="@drawable/back_ip"
             android:textSize="20sp"
-            android:layout_below="@+id/frameLayout"
+            android:layout_below="@+id/frame_label_lastHostIP"
             android:layout_marginTop="8dp" />
 
         <TextView
