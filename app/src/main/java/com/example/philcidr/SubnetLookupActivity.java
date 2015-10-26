@@ -122,16 +122,21 @@ public class SubnetLookupActivity extends Activity {
         txt_subnetIndex.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener() {
             @Override
             public void valueChanged(View view) {
-                EditText thisView = (EditText)view;
-                int subnet = Integer.parseInt(thisView.getText().toString());
+                //EditText thisView = (EditText)view;
+                //int subnet = Integer.parseInt(thisView.getText().toString());
+                int subnet = finalValue;
                 int numSubnets = (int)Math.pow(2, (double)Network.subnetBits);
-                Integer maxSubnet = numSubnets - 1;
+                int maxSubnet = numSubnets - 1;
 
                 // deal with input validation
                 // yes, I'm ashamed of myself.
-                if (subnet < 0) {
+                if (subnet == -1) {
+                    Toast.makeText(SubnetLookupActivity.this, "Invalid Input", Toast.LENGTH_LONG).show();
+                    ((EditText)view).setText(((Integer) previousValue).toString());
+                }
+                else if (subnet < 0) {
                     Toast.makeText(SubnetLookupActivity.this, "Negative subnet. Don't do that!", Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Long)previousValue).toString());
+                    ((EditText)view).setText(((Integer) previousValue).toString());
                 }
                 else if (subnet == 0) {
                     Toast.makeText(SubnetLookupActivity.this, "'Subnet Zero': Use caution.", Toast.LENGTH_LONG).show();
@@ -148,9 +153,9 @@ public class SubnetLookupActivity extends Activity {
                     setBroadcastAddress(subnet);
                 }
                 else if (subnet >= numSubnets) {
-                    Toast.makeText(SubnetLookupActivity.this, "Out of Range. Max Index = " + maxSubnet.toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(SubnetLookupActivity.this, "Out of Range. Max Index = " + ((Integer)maxSubnet).toString(), Toast.LENGTH_LONG).show();
                     if (previousValue != -1) {
-                        ((EditText)view).setText(((Long)previousValue).toString());
+                        ((EditText)view).setText(((Integer)previousValue).toString());
                     }
                     else {
                         ((EditText) view).setText("");
