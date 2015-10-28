@@ -120,7 +120,7 @@ public class HostLookupActivity extends Activity {
 
                 if (subnetIndex < 0) {
                     Toast.makeText(HostLookupActivity.this, "Negative subnet. Don't do that!", Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else if (subnetIndex == 0) {
                     Toast.makeText(HostLookupActivity.this, "'Subnet Zero': Use caution.", Toast.LENGTH_LONG).show();
@@ -132,7 +132,7 @@ public class HostLookupActivity extends Activity {
                 }
                 else if (subnetIndex > maxSubnetIndex) {
                     Toast.makeText(HostLookupActivity.this, "Out of Range. Max Index = " + ((Integer)maxSubnetIndex).toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else {
                     setHostAddress(subnetIndex, hostIndex);
@@ -148,7 +148,7 @@ public class HostLookupActivity extends Activity {
 
                 if (hostIndex < 0) {
                     Toast.makeText(HostLookupActivity.this, "Negative host. Don't do that!", Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else if (hostIndex == 0) {
                     Toast.makeText(HostLookupActivity.this, "Note: Showing a Subnet Address", Toast.LENGTH_LONG).show();
@@ -160,7 +160,7 @@ public class HostLookupActivity extends Activity {
                 }
                 else if (hostIndex > maxHostIndex) {
                     Toast.makeText(HostLookupActivity.this, "Out of Range. Max Index = " + ((Integer)maxSubnetIndex).toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else {
                     setHostAddress(subnetIndex, hostIndex);
@@ -171,17 +171,17 @@ public class HostLookupActivity extends Activity {
         txt_hostIP_1.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
             @Override
             public void valueChanged(View view){
-                Integer val = (int)finalValue;
+                Integer val = (int) newValue;
                 Integer minValue = Network.getByteAsUnsignedInt(Network.networkAddress[0]);
                 Integer maxValue = Network.getByteAsUnsignedInt(maxIP[0]);
 
                 if (val < minValue) {
                     Toast.makeText(HostLookupActivity.this, "The minimum value for this field is "+minValue.toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 if (val > maxValue) {
                     Toast.makeText(HostLookupActivity.this, "The maximum value for this field is "+maxValue.toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else {
                     setIndexes();
@@ -191,17 +191,17 @@ public class HostLookupActivity extends Activity {
         txt_hostIP_2.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
             @Override
             public void valueChanged(View view){
-                Integer val = (int)finalValue;
+                Integer val = (int) newValue;
                 Integer minValue = Network.getByteAsUnsignedInt(Network.networkAddress[1]);
                 Integer maxValue = Network.getByteAsUnsignedInt(maxIP[1]);
 
                 if (val < minValue) {
                     Toast.makeText(HostLookupActivity.this, "The minimum value for this field is "+minValue.toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 if (val > maxValue) {
                     Toast.makeText(HostLookupActivity.this, "The maximum value for this field is "+maxValue.toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else {
                     setIndexes();
@@ -211,17 +211,17 @@ public class HostLookupActivity extends Activity {
         txt_hostIP_3.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
             @Override
             public void valueChanged(View view){
-                Integer val = (int)finalValue;
+                Integer val = (int) newValue;
                 Integer minValue = Network.getByteAsUnsignedInt(Network.networkAddress[2]);
                 Integer maxValue = Network.getByteAsUnsignedInt(maxIP[2]);
 
                 if (val < minValue) {
                     Toast.makeText(HostLookupActivity.this, "The minimum value for this field is "+minValue.toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 if (val > maxValue) {
                     Toast.makeText(HostLookupActivity.this, "The maximum value for this field is "+maxValue.toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else {
                     setIndexes();
@@ -231,17 +231,17 @@ public class HostLookupActivity extends Activity {
         txt_hostIP_4.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
             @Override
             public void valueChanged(View view){
-                Integer val = (int)finalValue;
+                Integer val = (int) newValue;
                 Integer minValue = Network.getByteAsUnsignedInt(Network.networkAddress[3]);
                 Integer maxValue = Network.getByteAsUnsignedInt(maxIP[3]);
 
                 if (val < minValue) {
                     Toast.makeText(HostLookupActivity.this, "The minimum value for this field is "+minValue.toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 if (val > maxValue) {
                     Toast.makeText(HostLookupActivity.this, "The maximum value for this field is "+maxValue.toString(), Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer)previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else {
                     setIndexes();

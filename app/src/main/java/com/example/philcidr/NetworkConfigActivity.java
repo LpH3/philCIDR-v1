@@ -127,27 +127,27 @@ public class NetworkConfigActivity extends Activity {
         txt_inputIP_1.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
             @Override
             public void valueChanged(View view){
-                if ((finalValue < 1 )|(finalValue > 254)) {
+                if ((newValue < 1 )|(newValue > 254)) {
                     Toast.makeText(NetworkConfigActivity.this, "Out of Range", Toast.LENGTH_SHORT).show();
-                    ((EditText)view).setText("");
+                    ((EditText)view).setText(oldString);
                 }
             }
         });
-        txt_inputIP_2.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
+        txt_inputIP_2.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener() {
             @Override
-            public void valueChanged(View view){
-                if ((finalValue < 0 )|(finalValue > 254)) {
+            public void valueChanged(View view) {
+                if ((newValue < 0) | (newValue > 254)) {
                     Toast.makeText(NetworkConfigActivity.this, "Out of Range", Toast.LENGTH_SHORT).show();
-                    ((EditText) view).setText("");
+                    ((EditText) view).setText(oldString);
                 }
             }
         });
         txt_inputIP_3.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
             @Override
             public void valueChanged(View view){
-                if ((finalValue < 0 )|(finalValue > 254)) {
+                if ((newValue < 0 )|(newValue > 254)) {
                     Toast.makeText(NetworkConfigActivity.this, "Out of Range", Toast.LENGTH_SHORT).show();
-                    ((EditText) view).setText("");
+                    ((EditText) view).setText(oldString);
                 }
 
             }
@@ -155,9 +155,9 @@ public class NetworkConfigActivity extends Activity {
         txt_inputIP_4.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
             @Override
             public void valueChanged(View view){
-                if ((finalValue < 0 )|(finalValue > 254)) {
+                if ((newValue < 0 )|(newValue > 254)) {
                     Toast.makeText(NetworkConfigActivity.this, "Out of Range", Toast.LENGTH_SHORT).show();
-                    ((EditText) view).setText("");
+                    ((EditText) view).setText(oldString);
                 }
 
             }
@@ -165,11 +165,11 @@ public class NetworkConfigActivity extends Activity {
         txt_cidrBlockBits.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
             @Override
             public void valueChanged(View view) {
-                if ((finalValue < 0) | (finalValue > 32)) {
+                if ((newValue < 0) | (newValue > 32)) {
                     Toast.makeText(NetworkConfigActivity.this, "Out of Range", Toast.LENGTH_SHORT).show();
-                    ((EditText) view).setText("");
+                    ((EditText) view).setText(oldString);
                 }
-                else if (finalValue == 32) {
+                else if (newValue == 32) {
 
                 }
 

@@ -124,7 +124,7 @@ public class SubnetLookupActivity extends Activity {
             public void valueChanged(View view) {
                 //EditText thisView = (EditText)view;
                 //int subnet = Integer.parseInt(thisView.getText().toString());
-                int subnet = finalValue;
+                int subnet = newValue;
                 int numSubnets = (int)Math.pow(2, (double)Network.subnetBits);
                 int maxSubnet = numSubnets - 1;
 
@@ -132,11 +132,11 @@ public class SubnetLookupActivity extends Activity {
                 // yes, I'm ashamed of myself.
                 if (subnet == -1) {
                     Toast.makeText(SubnetLookupActivity.this, "Invalid Input", Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer) previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else if (subnet < 0) {
                     Toast.makeText(SubnetLookupActivity.this, "Negative subnet. Don't do that!", Toast.LENGTH_LONG).show();
-                    ((EditText)view).setText(((Integer) previousValue).toString());
+                    ((EditText)view).setText(((Integer) oldValue).toString());
                 }
                 else if (subnet == 0) {
                     Toast.makeText(SubnetLookupActivity.this, "'Subnet Zero': Use caution.", Toast.LENGTH_LONG).show();
@@ -154,8 +154,8 @@ public class SubnetLookupActivity extends Activity {
                 }
                 else if (subnet >= numSubnets) {
                     Toast.makeText(SubnetLookupActivity.this, "Out of Range. Max Index = " + ((Integer)maxSubnet).toString(), Toast.LENGTH_LONG).show();
-                    if (previousValue != -1) {
-                        ((EditText)view).setText(((Integer)previousValue).toString());
+                    if (oldValue != -1) {
+                        ((EditText)view).setText(((Integer) oldValue).toString());
                     }
                     else {
                         ((EditText) view).setText("");
