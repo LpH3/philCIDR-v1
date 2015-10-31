@@ -1,6 +1,5 @@
 package com.example.philcidr;
 
-import android.app.Activity;
 import android.view.View;
 import android.widget.EditText;
 
@@ -34,27 +33,29 @@ public class MyIntEditTextOnFocusChangeListener implements View.OnFocusChangeLis
                 "*       " + firstMessage + "\n"+
                 "*\n"+
                 "*           oldString = " + oldString + "\n"+
-                "*           oldValue = " + oldValue + "\n"+
+                "*           oldInteger = " + oldValue + "\n"+
                 "*\n"+
                 "*           newString = " + newString + "\n"+
-                "*           newValue = " + newValue + "\n"+
+                "*           newInteger = " + newValue + "\n"+
                 "*\n"+
                 "*           EditText value = " + ((EditText)view).getText().toString() + "\n"+
                 "*********************************************************************");
     }
 
     private void printVariables(View view){
-        System.out.println("*********************************************************************");
-        System.out.println("*" + view.getId() + " | " + view.getTag().toString() + ": ");
-        System.out.println("*    oldString = " + oldString);
-        System.out.println("*    oldValue = " + oldValue);
-        System.out.println("*    newString = " + newString);
-        System.out.println("*    newValue = " + newValue);
-        //System.out.println(view.getId() + " | " + view.getTag().toString() + ": oldString = " + oldString);
-        //System.out.println(view.getId() + " | " + view.getTag().toString() + ": oldValue = " + newString);
-        //System.out.println(view.getId() + " | " + view.getTag().toString() + ": oldValue = " + oldValue);
-        //System.out.println(view.getId() + " | " + view.getTag().toString() + ": newValue = " + newValue);
-        System.out.println("*********************************************************************");
+        System.out.println(
+                "*********************************************************************\n"+
+                "*   " + view.getId() + " | " + view.getTag().toString() + ": \n"+
+                "*       no message\n"+
+                "*\n"+
+                "*           oldString = " + oldString + "\n"+
+                "*           oldInteger = " + oldValue + "\n"+
+                "*\n"+
+                "*           newString = " + newString + "\n"+
+                "*           newInteger = " + newValue + "\n"+
+                "*\n"+
+                "*           EditText value = " + ((EditText)view).getText().toString() + "\n"+
+                "*********************************************************************");
     }
 
     public void valueChanged(View view) {
@@ -87,24 +88,24 @@ public class MyIntEditTextOnFocusChangeListener implements View.OnFocusChangeLis
             // if it's an empty string, no reason to try to parse it
             if (oldString.isEmpty()) {
                 oldValue = -1;
-                // Toast.makeText(NetworkConfigActivity.this, "no oldValue!", Toast.LENGTH_LONG).show();
-                // System.out.println(view.getId() + " | " + view.getTag().toString() + ": No oldValue");
-                printVariables(view, "no oldValue, oldString is empty");
+                // Toast.makeText(NetworkConfigActivity.this, "no oldInteger!", Toast.LENGTH_LONG).show();
+                // System.out.println(view.getId() + " | " + view.getTag().toString() + ": No oldInteger");
+                printVariables(view, "no oldInteger, oldString is empty");
             }
             // if it's not an empty string, try to parse it
             else {
                 try {
-                    // Try to parse an integer from the EditText and set it to oldValue
+                    // Try to parse an integer from the EditText and set it to oldInteger
                     oldValue = Integer.parseInt(oldString);
-                    // Toast.makeText(NetworkConfigActivity.this, "oldValue = "+oldValue, Toast.LENGTH_LONG).show();
-                    printVariables(view, "integer parsed from oldValue");
+                    // Toast.makeText(NetworkConfigActivity.this, "oldInteger = "+oldInteger, Toast.LENGTH_LONG).show();
+                    printVariables(view, "integer parsed from oldInteger");
                 } catch (Exception e) {
                     // If something else went wrong, make everything the same as if it was empty
                     oldString = "";
                     oldValue = -1;
                     // Toast.makeText(NetworkConfigActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
                     // System.out.println(view.getId() + " | " + view.getTag().toString() + ": Something is wrong");
-                    printVariables(view, "something went wrong parsing the oldValue");
+                    printVariables(view, "something went wrong parsing the oldInteger");
                     System.out.println(e.getMessage());
                     System.out.println(e.getClass().getName());
                 }
@@ -126,7 +127,7 @@ public class MyIntEditTextOnFocusChangeListener implements View.OnFocusChangeLis
             // if the string value of the oldString and newString are equal, why go any further?
             if (oldString.equals(newString)) {
                 // this assignment is really unnecessary but it's good to be consistent
-                printVariables(view, "oldString equals newString, setting newValue = oldValue");
+                printVariables(view, "oldString equals newString, setting newInteger = oldInteger");
                 newValue = oldValue;
                 editText.setText(oldString);
                 // Toast.makeText(NetworkConfigActivity.this, "no change", Toast.LENGTH_LONG).show();
@@ -137,12 +138,12 @@ public class MyIntEditTextOnFocusChangeListener implements View.OnFocusChangeLis
 
             // if the new value is an empty string, there's once again no reason to parse it.
             if (newString.isEmpty()) {
-                printVariables(view, "newString is empty, setting newValue to -1");
+                printVariables(view, "newString is empty, setting newInteger to -1");
                 newValue = -1;
                 editText.setText("");
                 // Toast.makeText(NetworkConfigActivity.this, "no new value", Toast.LENGTH_LONG).show();
-                // System.out.println(view.getId() + " | " + view.getTag().toString() + ": No newValue");
-                printVariables(view, "no newValue, newString is empty, setting text to oldString");
+                // System.out.println(view.getId() + " | " + view.getTag().toString() + ": No newInteger");
+                printVariables(view, "no newInteger, newString is empty, setting text to oldString");
                 editText.setText(oldString);
                 printVariables(view, "value has not changed, lose focus event concluded");
                 return;
@@ -152,15 +153,15 @@ public class MyIntEditTextOnFocusChangeListener implements View.OnFocusChangeLis
             try {
                 // Try to parse your value, as it exists when you lose focus
                 newValue = Integer.parseInt(newString);
-                // Toast.makeText(NetworkConfigActivity.this, "newValue = "+newValue, Toast.LENGTH_LONG).show();
-                printVariables(view, "integer successfully parsed from newString, set to newValue");
+                // Toast.makeText(NetworkConfigActivity.this, "newInteger = "+newInteger, Toast.LENGTH_LONG).show();
+                printVariables(view, "integer successfully parsed from newString, set to newInteger");
             }
             catch(NumberFormatException e){
                 //System.out.println(e.getMessage());
                 //System.out.println(e.getClass().getName());
 
                 // if there is a value but it is invalid, send this control value
-                printVariables(view, "parse failed, setting newValue to -2");
+                printVariables(view, "parse failed, setting newInteger to -2");
                 newValue = -2;
                 printVariables(view, "input was invalid for integer");
             }
