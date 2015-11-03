@@ -85,7 +85,7 @@
         android:focusableInTouchMode="false"
         android:clickable="false">
 
-        <EditText
+        <com.example.philcidr.AddressField
             android:id="@+id/txt_inputIP_1"
             android:tag="network_config_txt_inputIP_1"
             android:layout_width="0px"
@@ -103,7 +103,7 @@
             android:text="@string/txt_dot"
             android:textSize="20sp" />
 
-        <EditText
+        <com.example.philcidr.AddressField
             android:id="@+id/txt_inputIP_2"
             android:tag="network_config_txt_inputIP_2"
             android:layout_width="0px"
@@ -121,7 +121,7 @@
             android:text="@string/txt_dot"
             android:textSize="20sp" />
 
-        <EditText
+        <com.example.philcidr.AddressField
             android:id="@+id/txt_inputIP_3"
             android:tag="network_config_txt_inputIP_3"
             android:layout_width="0px"
@@ -139,7 +139,7 @@
             android:text="@string/txt_dot"
             android:textSize="20sp" />
 
-        <EditText
+        <com.example.philcidr.AddressField
             android:id="@+id/txt_inputIP_4"
             android:tag="network_config_txt_inputIP_4"
             android:layout_width="0px"

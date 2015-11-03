@@ -14,26 +14,27 @@ public abstract class InputField extends EditText implements View.OnFocusChangeL
 
     Activity mActivity;
     Context mContext;
-
-    String oldString = "";
-    String newString = "";
+    protected EditText thisField;
 
     public InputField(Context context) {
         super(context);
         mContext = context;
         setOnFocusChangeListener(this);
+        thisField = this;
     }
 
     public InputField(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
         setOnFocusChangeListener(this);
+        thisField = this;
     }
 
     public InputField(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
         setOnFocusChangeListener(this);
+        thisField = this;
     }
 
     public void init(Activity activity) {

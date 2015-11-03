@@ -29,7 +29,7 @@ public class NetworkConfigActivity extends Activity {
          *  when you "click" it it sets focus to it and hides the keyboard.
          */
         layout_Main = findViewById(R.id.layout_NetworkConfig);
-        final InputMethodManager imm = (InputMethodManager)getSystemService(
+        final InputMethodManager imm = (InputMethodManager) getSystemService(
                 NetworkConfigActivity.this.INPUT_METHOD_SERVICE);
         layout_Main.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -38,18 +38,103 @@ public class NetworkConfigActivity extends Activity {
             }
         });
 
-        final Button bt_startCalc = (Button)findViewById(R.id.btn_GO);
-        final Switch sw_addrType = (Switch)findViewById(R.id.switch_addrType);
-        final EditText txt_inputIP_1 = (EditText)findViewById(R.id.txt_inputIP_1);
-        final EditText txt_inputIP_2 = (EditText)findViewById(R.id.txt_inputIP_2);
-        final EditText txt_inputIP_3 = (EditText)findViewById(R.id.txt_inputIP_3);
-        final EditText txt_inputIP_4 = (EditText)findViewById(R.id.txt_inputIP_4);
-        final RadioButton rad_classA = (RadioButton)findViewById(R.id.radio_classA);
-        final RadioButton rad_classB = (RadioButton)findViewById(R.id.radio_classB);
-        final RadioButton rad_classC = (RadioButton)findViewById(R.id.radio_classC);
-        final EditText txt_cidrBlockBits = (EditText)findViewById(R.id.txt_cidrBlockBits);
-        final View layout_cidrInputContainer = (View)findViewById(R.id.layout_cidrInputContainer);
-        final View layout_classInputContainer = (View)findViewById(R.id.layout_classInputContainer);
+        final View layout_ipContainer = findViewById(R.id.layout_ipContainer);
+        final Button bt_startCalc = (Button) findViewById(R.id.btn_GO);
+        final Switch sw_addrType = (Switch) findViewById(R.id.switch_addrType);
+        final AddressField txt_inputIP_1 = (AddressField) findViewById(R.id.txt_inputIP_1);
+        final AddressField txt_inputIP_2 = (AddressField) findViewById(R.id.txt_inputIP_2);
+        final AddressField txt_inputIP_3 = (AddressField) findViewById(R.id.txt_inputIP_3);
+        final AddressField txt_inputIP_4 = (AddressField) findViewById(R.id.txt_inputIP_4);
+        final RadioButton rad_classA = (RadioButton) findViewById(R.id.radio_classA);
+        final RadioButton rad_classB = (RadioButton) findViewById(R.id.radio_classB);
+        final RadioButton rad_classC = (RadioButton) findViewById(R.id.radio_classC);
+        final EditText txt_cidrBlockBits = (EditText) findViewById(R.id.txt_cidrBlockBits);
+        final View layout_cidrInputContainer = findViewById(R.id.layout_cidrInputContainer);
+        final View layout_classInputContainer = findViewById(R.id.layout_classInputContainer);
+
+        IntegerField.RuleSet rules = new IntegerField.RuleSet() {
+
+            public void rangeError(IntegerField thisField) {
+                if (thisField.getId() == R.id.txt_inputIP_1){
+                    thisField.makeToast("Value must be between 1 and 254");
+                }
+                else thisField.makeToast("Value must be between 0 and 254");
+
+                thisField.setText(thisField.oldString);
+            }
+            @Override
+            public void isEmptyString(IntegerField thisField) {
+                super.isEmptyString(thisField);
+                thisField.makeToast("Fuck yeah! isEmpty."+(thisField.getTag().toString()));
+            }
+
+            @Override
+            public void isSame(IntegerField thisField) {
+                super.isSame(thisField);
+                thisField.makeToast("Fuck yeah! isSame."+(thisField.getTag().toString()));
+            }
+
+            @Override
+            public void isDifferent(IntegerField thisField, int value) {
+                if ((value < 0)||(value > 254)){
+                    rangeError(thisField);
+                    return;
+                }
+
+                if ((value == 0)&&(thisField.getId() == R.id.txt_inputIP_1)) {
+                    rangeError(thisField);
+                    return;
+                }
+
+                thisField.setText(thisField.newString);
+            }
+
+            @Override
+            public void isOutOfRange(IntegerField thisField) {
+                super.isOutOfRange(thisField);
+                rangeError(thisField);
+                thisField.makeToast("Fuck yeah! isOutOfRange." + (thisField.getTag().toString()));
+            }
+
+            @Override
+            public void isOtherError(IntegerField thisField, Throwable e) {
+                super.isOtherError(thisField, e);
+                thisField.makeToast("Fuck yeah! isOtherError." + (thisField.getTag().toString()));
+            }
+
+        };
+
+        txt_inputIP_1.setRules(rules);
+        txt_inputIP_2.setRules(rules);
+        txt_inputIP_3.setRules(rules);
+        txt_inputIP_4.setRules(rules);
+
+        /*
+        // TODO: See about putting all this into the IntegerField class
+        Editable ip1 = txt_inputIP_1.getEditableText();
+        InputFilter[] filters = new InputFilter[]{new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                if (source.length() == 0) return "";
+                if (dest.toString() == source.toString()) return null;
+                else {
+                    try {
+                        int sourceInt = Integer.parseInt(source.toString());
+                    } catch (NumberFormatException e) {
+                        // things to happen if the number is too big
+                        return dest;
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                        System.out.println(e.getClass().getName());
+                        return dest;
+                    }
+                }
+                // things to happen if there is a new value
+                return null;
+            }
+        }
+    };
+    */
 
         int ipByte1; //= Integer.parseInt(txt_inputIP_1.getText().toString());
         int ipByte2; //= Integer.parseInt(txt_inputIP_2.getText().toString());
@@ -123,6 +208,7 @@ public class NetworkConfigActivity extends Activity {
             }
         };
 
+        /*
         // we can give all the relevant EditText views the same listener
         txt_inputIP_1.setOnFocusChangeListener(new MyIntEditTextOnFocusChangeListener(){
             @Override
@@ -175,6 +261,7 @@ public class NetworkConfigActivity extends Activity {
 
             }
         });
+        */
 
         rad_classA.setOnCheckedChangeListener(myRadioButtonOnCheckedChangeListener);
         rad_classB.setOnCheckedChangeListener(myRadioButtonOnCheckedChangeListener);

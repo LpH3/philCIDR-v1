@@ -221,4 +221,11 @@ public final class R {
         public static final int txt_IPAddr_element_1_column1=0x7f040009;
         public static final int txt_main_textbox=0x7f04000a;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a AddressField.
+         */
+        public static final int[] AddressField = {
+            
+        };
+    };
 }
